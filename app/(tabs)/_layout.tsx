@@ -1,5 +1,6 @@
 import { Tabs } from "expo-router";
 import Ionicons from "@expo/vector-icons/Ionicons";
+import { DrawerToggleButton } from "@react-navigation/drawer";
 
 export default function TabLayout() {
   return (
@@ -14,6 +15,12 @@ export default function TabLayout() {
         tabBarStyle: {
           backgroundColor: "#25292e",
         },
+        headerLeft: () => (
+          <DrawerToggleButton 
+            tintColor="#fff" 
+            accessibilityLabel="Open navigation menu"
+          />
+        ),
       }}
     >
       <Tabs.Screen
@@ -35,9 +42,7 @@ export default function TabLayout() {
           title: "About",
           tabBarIcon: ({ color, focused }) => (
             <Ionicons
-              name={
-                focused ? "information-circle" : "information-circle-outline"
-              }
+              name={focused ? "information-circle" : "information-circle-outline"}
               color={color}
               size={24}
             />
